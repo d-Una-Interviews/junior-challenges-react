@@ -1,8 +1,8 @@
 import Card from "../Card/Card"
-import { Pokemon } from "../../react-app-env"
+import { MainPokemon } from "../../react-app-env"
 
 interface MainProps{
-  pokemons: Pokemon[]
+  pokemons: MainPokemon[]
 }
 
 export default function Main({pokemons}:MainProps ){

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Pokemon } from './react-app-env';
+import { MainPokemon } from './react-app-env';
 import Card from './components/Card/Card';
 import { Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main';
 import ShowPokemon from './components/ShowPokemon./ShowPokemon';
 
 function App() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([])
+  const [pokemons, setPokemons] = useState<MainPokemon[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Main pokemons={pokemons}/>} />
-        {/* <Route path="home" element={<ShowPokemon/>} /> */}
+        <Route path="pokemon/:id" element={<ShowPokemon/>} />
         
 
       </Routes>
