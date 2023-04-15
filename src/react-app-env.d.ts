@@ -10,4 +10,11 @@ export interface Pokemon{
   types: string[],
   weight: number,
   height: number,
+  stats: Stat[]
 }
+
+export interface Stat{
+  name: string,
+  base: number
+}
+

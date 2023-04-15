@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { MainPokemon } from './react-app-env';
-import Card from './components/Card/Card';
 import { Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main';
-import ShowPokemon from './components/ShowPokemon./ShowPokemon';
+import ShowPokemon from './components/ShowPokemon/ShowPokemon';
 
 function App() {
   const [pokemons, setPokemons] = useState<MainPokemon[]>([])
