@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { Pokemon, Stat } from "../../react-app-env";
 import './ShowPokemon.css';
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
+function MyComponent() {
+  return <FontAwesomeIcon icon={faUser} />;
+}
 
 
 type TotalTypes = {
@@ -109,24 +117,46 @@ export default function ShowPokemon(){
     fetchData();  
     
   }, [id])
-  
+
   return(
     <div className="wrapper">
       {pokemon 
       ?
       <>
-        <h1 className="title">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+        <div style={{position:"relative"}}>
+          <Link to={`/`}  className="link">
+            <FontAwesomeIcon  className="arrow" icon={faArrowLeft} size="2x"/>
+          </Link>
+        </div>
+          <h1 className="title">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h1>
+        
         <div className="type-container">
           {
             pokemon.types.map((type: string) =>{
-              console.log(type)
               return(
                 <p className="type" style={{background:totalTypes[type as PokemonType]}}>{type}</p>
                 )
               })
             }
         </div>
-        <img className="show-img" src={pokemon.image} alt="Sin imagen"/>
+        <div className="img-container">
+          {
+            id ? 
+            <>
+              {id === "1" ? 
+                null :
+                <Link to={`/pokemon/${parseInt(id)-1}`}  className="link">
+                  <FontAwesomeIcon icon={faChevronLeft} size="4x"/>
+                </Link>  
+              }
+              <img className="show-img" src={pokemon.image} alt="Sin imagen"/>
+              <Link to={`/pokemon/${parseInt(id)+1}`} className="link">
+                <FontAwesomeIcon icon={faChevronRight} size="4x"/>
+              </Link>
+            </>
+            : null
+          }
+        </div>
         <div className="char-container">
           <p>weight: {pokemon.weight/10}kg</p>
           <p>height: {pokemon.height/10}m</p>
