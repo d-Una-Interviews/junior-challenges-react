@@ -1,0 +1,21 @@
+.card{
+  width:200px;
+  height: 300px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  padding: 20px 20px;
+  box-shadow: 0px 10px 40px rgba(41, 40, 40, 0.03);
+}
+
+.card:hover{
+  scale:1.1;
+}
+
+img{
+  width: 200px;
+}
+
+.link{
+  text-decoration:none;
+  color:rgba(90, 76, 76);
+}
